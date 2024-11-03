@@ -3,17 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Weapon
+  - SecondCamera
+  - BulletSpawn
+  - Enemy
+  - LevelPart
+  - Dummie
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Weapon
+  - Player
+  - Enemy
   - 
   - 
   - 
