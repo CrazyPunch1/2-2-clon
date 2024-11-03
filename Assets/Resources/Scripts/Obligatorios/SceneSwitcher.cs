@@ -19,7 +19,7 @@ public class SceneSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && door.activeSelf)
         {
             SceneManager.LoadScene(sceneToLoad); // Load the specified scene
         }

@@ -12,7 +12,6 @@ public class EnemyManager : MonoBehaviour
         enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy")); // Find all enemies at the start
     }
 
-
     public void EnemyDefeated(GameObject enemy)
     {
         enemies.Remove(enemy); // Remove the enemy from the list
@@ -22,5 +21,11 @@ public class EnemyManager : MonoBehaviour
         {
             OnAllEnemiesDefeated?.Invoke(); // Fire event when no enemies remain
         }
+    }
+
+    // Public method to manually trigger the event
+    public void TriggerAllEnemiesDefeated()
+    {
+        OnAllEnemiesDefeated?.Invoke();
     }
 }

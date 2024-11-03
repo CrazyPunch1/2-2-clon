@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbf42fc77e2f2e49bab2a0432ae8862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 30
+  ammoAmount: 100
   pickupSound: {fileID: 0}
   pickupEffect: {fileID: 0}
   destroyDelay: 0.5
