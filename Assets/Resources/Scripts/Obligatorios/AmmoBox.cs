@@ -16,12 +16,12 @@ public class AmmoBox : MonoBehaviour
             // Check if the player has a GunInventory component
             GunInventory GI = other.GetComponent<GunInventory>();
 
-            if (GI != null)
+            if (GI != null && GI.currentGun != null)
             {
                 Debug.Log("Player collided with AmmoBox. GunInventory found.");
 
                 GunScript gunScript = GI.currentGun.GetComponent<GunScript>();
-                if (gunScript != null)
+                if (gunScript != null && !gunScript.IsAmmoFull())
                 {
                     Debug.Log("GunScript found on current gun.");
 
