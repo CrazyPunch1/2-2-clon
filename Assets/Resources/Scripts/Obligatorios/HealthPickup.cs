@@ -9,23 +9,26 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the colliding object has a HealthSystem component
-        HealthSystem healthSystem = other.GetComponent<HealthSystem>();
-        if (healthSystem != null && healthSystem.IsAlive())
+        // Check if the colliding object is the player by tag and has a HealthSystem component
+        if (other.CompareTag("Player"))
         {
-            // Heal the player
-            healthSystem.Heal(healAmount);
+            HealthSystem healthSystem = other.GetComponent<HealthSystem>();
+            if (healthSystem != null && healthSystem.IsAlive())
+            {
+                // Heal the player
+                healthSystem.Heal(healAmount);
 
-            // Optional: Play a pickup sound
-            if (pickupSound != null)
-                AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+                // Optional: Play a pickup sound
+                if (pickupSound != null)
+                    AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 
-            // Optional: Instantiate visual effect
-            if (pickupEffect != null)
-                Instantiate(pickupEffect, transform.position, Quaternion.identity);
+                // Optional: Instantiate visual effect
+                if (pickupEffect != null)
+                    Instantiate(pickupEffect, transform.position, Quaternion.identity);
 
-            // Destroy the pickup after a short delay
-            Destroy(gameObject, destroyDelay);
+                // Destroy the pickup after a short delay
+                Destroy(gameObject, destroyDelay);
+            }
         }
     }
 }

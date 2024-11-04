@@ -152,3 +152,4 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  lifetime: 10

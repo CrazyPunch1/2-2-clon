@@ -9,22 +9,23 @@ public class AmmoBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the colliding object is the player
         if (other.CompareTag("Player"))
         {
             Debug.Log("AmmoBox triggered by Player");
 
-            // Check if the player has a GunInventory component
-            GunInventory GI = other.GetComponent<GunInventory>();
+            // Retrieve the GunInventory component from the player
+            GunInventory gunInventory = other.GetComponent<GunInventory>();
 
-            if (GI != null && GI.currentGun != null)
+            if (gunInventory != null && gunInventory.currentGun != null)
             {
-                Debug.Log("Player collided with AmmoBox. GunInventory found.");
+                Debug.Log("Player has GunInventory and current gun equipped.");
 
-                GunScript gunScript = GI.currentGun.GetComponent<GunScript>();
-                if (gunScript != null && !gunScript.IsAmmoFull())
+                // Retrieve the GunScript component from the current gun
+                GunScript gunScript = gunInventory.currentGun.GetComponent<GunScript>();
+
+                if (gunScript != null)
                 {
-                    Debug.Log("GunScript found on current gun.");
-
                     if (!gunScript.IsAmmoFull())
                     {
                         Debug.Log("Adding ammo: " + ammoAmount);
@@ -32,11 +33,11 @@ public class AmmoBox : MonoBehaviour
                         // Refill the player's ammo
                         gunScript.AddAmmo(ammoAmount);
 
-                        // Optional: Play a sound effect
+                        // Play a pickup sound if assigned
                         if (pickupSound != null)
                             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 
-                        // Optional: Instantiate a visual effect
+                        // Instantiate a visual effect if assigned
                         if (pickupEffect != null)
                             Instantiate(pickupEffect, transform.position, Quaternion.identity);
 
@@ -50,12 +51,12 @@ public class AmmoBox : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("No GunScript found on current gun.");
+                    Debug.LogWarning("No GunScript found on the current gun.");
                 }
             }
             else
             {
-                Debug.LogWarning("No GunInventory found on colliding object.");
+                Debug.LogWarning("No GunInventory or current gun found on the player.");
             }
         }
     }

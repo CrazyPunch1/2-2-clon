@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e3e0200df3aba4fac5b617992bca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 1000
+  maxHealth: 5000
+  currentHealth: 5000
   timeToSelfDestructOnDeath: 1
   onBeenHit:
     m_PersistentCalls:
@@ -269,18 +269,18 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  health: 1000
+  health: 5000
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0.72
   projectile: {fileID: 7469226733029224761, guid: e3515e425e2541041b4b8792033d29e2,
     type: 3}
   shootPosition: {fileID: 2288891608642828140}
-  meleeRange: 8.19
-  meleeDamage: 35
+  meleeRange: 9.39
+  meleeDamage: 50
   meleeWindUpTime: 0.1
-  sightRange: 20
-  attackRange: 12
+  sightRange: 100.5
+  attackRange: 15.1
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!95 &2854012905049399177

@@ -307,8 +307,8 @@ MonoBehaviour:
   projectile: {fileID: 7469226733029224761, guid: e3515e425e2541041b4b8792033d29e2,
     type: 3}
   shootPosition: {fileID: 5524638958697204379}
-  sightRange: 20
-  attackRange: 12
+  sightRange: 24.2
+  attackRange: 7.1
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!95 &1501786252006574808
